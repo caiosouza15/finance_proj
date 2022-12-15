@@ -1,7 +1,14 @@
-import * as C from './styled'
+import * as C from './styled';
+import {Item} from "../../types/Item";
+import {TableItem} from "../TableItem/TableItem"
 
+type listProps = {
+    list: Item[];
+}
 
-export const TableArea = () => {
+export const TableArea = ({list}: listProps) => {
+
+    console.log("TEST", list);
     return (
         <C.Table>
             <thead>
@@ -13,6 +20,9 @@ export const TableArea = () => {
                 </tr>
             </thead>
             <tbody>
+                {list.map((item: Item, index: number) =>(
+                    <TableItem key={index} item={item} />
+                ))}
 
             </tbody>
         </C.Table>
