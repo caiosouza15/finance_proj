@@ -7,8 +7,6 @@ type listProps = {
 }
 
 export const TableArea = ({list}: listProps) => {
-
-    console.log("TEST", list);
     return (
         <C.Table>
             <thead>
@@ -19,6 +17,7 @@ export const TableArea = ({list}: listProps) => {
                     <C.TableHeaderColumn width={150}>Value</C.TableHeaderColumn>
                 </tr>
             </thead>
+            
             <tbody>
                 {list.map((item: Item, index: number) =>(
                     <TableItem key={index} item={item} />
