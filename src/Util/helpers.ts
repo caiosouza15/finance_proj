@@ -1,6 +1,6 @@
 export const getCurrentMonth = () => {
     let now = new Date();
-    return `${now.getFullYear()}-${now.getMonth()+1};`
+    return `${now.getFullYear()}-${now.getMonth()+1}`;
 };
 
 export const formatDateToBrazilianFormat = (data: Date): string => {
@@ -13,7 +13,8 @@ export const formatDateToBrazilianFormat = (data: Date): string => {
 
 const addZeroToDate = (item: number) => item < 10 ? `0${item}` : item;
 
-export const formatCashValue = (item: number) => `${item}$`
+
+
 
     
     

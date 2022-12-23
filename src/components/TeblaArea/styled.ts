@@ -9,10 +9,12 @@ export const Table = styled.table`
     margin-top: 30px;
     font-family: system-ui;
     
+    
 `;
 
 export const TableHeaderColumn = styled.th<{width? : number}>`
     width: ${props => props.width ? `${props.width}px` : 'auto'};
-    padding: 10px 0;
+    padding: 10px 10px;
     text-align: left;
 `;
+
