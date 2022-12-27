@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import * as C from './App.styled'
 import { Category } from './types/Category';
-import { Item } from './types/Item';
+import { ItemType } from './types/Item';
 import { items } from './data/items';
 import { getCurrentMonth } from './Util/helpers';
 import TableArea from './components/TeblaArea';
@@ -14,7 +14,7 @@ import NewData from './components/NewData';
 const App = () => {
 
   const [list, setList] = useState(items);
-  const [filteredList, setFilteredList] = useState<Item[]>([]);
+  const [filteredList, setFilteredList] = useState<ItemType[]>([]);
   const [currentMonth, seCurrentMonth] = useState(getCurrentMonth);
   const [income, setIncome] = useState<number>(0);
   const [expense, setExpense] = useState(0);
@@ -45,6 +45,12 @@ const App = () => {
     seCurrentMonth(newMonth);
   };
 
+  const handleAddItem = (item: ItemType) => {
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  }
+
   return (
     <C.Container>
 
@@ -69,7 +75,7 @@ const App = () => {
         </C.ContainerButton>
          
 
-         <NewData />
+         <NewData onAdd={handleAddItem}/>
 
       </C.Body>
     </C.Container>

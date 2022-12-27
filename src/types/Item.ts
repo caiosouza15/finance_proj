@@ -1,4 +1,4 @@
-export type Item = {
+export type ItemType = {
     date: Date;
     category: string;
     title: string;

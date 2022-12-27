@@ -1,9 +1,9 @@
 import * as C from './styled';
-import {Item} from "../../types/Item";
+import {ItemType} from "../../types/Item";
 import {TableItem} from "../TableItem/TableItem"
 
 type listProps = {
-    list: Item[];
+    list: ItemType[];
 }
 
 export const TableArea = ({list}: listProps) => {
@@ -19,7 +19,7 @@ export const TableArea = ({list}: listProps) => {
             </thead>
             
             <tbody>
-                {list.map((item: Item, index: number) =>(
+                {list.map((item: ItemType, index: number) =>(
                     <TableItem key={index} item={item} />
                 ))}
 

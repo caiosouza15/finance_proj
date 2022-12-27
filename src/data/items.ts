@@ -1,6 +1,6 @@
-import { Item } from "../types/Item"
+import { ItemType } from "../types/Item"
 
-export const items: Item[] = [
+export const items: ItemType[] = [
     {
         date: new Date(2022, 5, 2),
         category: 'food',
