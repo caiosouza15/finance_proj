@@ -1,56 +1,64 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    
+       margin-top: 30px;
+       background-color: #fff;
+       border-radius: 5px;
+       box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, 
+       rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+       padding-bottom: 10px;
     `;
 
 export const FormArea = styled.div`
-    display: flex;    
-    flex-direction: column;
-   
+    display: flex;     
 `;
 
 export const InputLabel = styled.label`
     padding: 10px;
 `;
 
-export const InputTitle = styled.div``;
+export const InputTitle = styled.div`
+    padding: 10px 0;
+`;
 
 export const Input = styled.input`
      padding: 5px;
      font-size: 18px;
      border-width: 1px;
+     border-radius: 4px;
      border-color: #CCCCCC;
-     background-color: #FFFFFF;
-     color: #000000;
-     border-style: solid;
-     border-radius: 5px;
-     box-shadow: 0px 0px 5px rgba(66,66,66,.75);
-     text-shadow: 0px 0px 5px rgba(66,66,66,.75);
+     background-color: #FFFFFF;     
+ `;
 
-    &:hover,
-    &:focus {
-        border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-        color: rgba(0, 0, 0, 0.65);
-      }
-      
-    &:hover {
-        transform: translateY(-1px);
-    }
-      
-    &:active {
-        background-color: #F0F0F1;
-        border-color: rgba(0, 0, 0, 0.15);
-        box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
-        color: rgba(0, 0, 0, 0.65);
-        transform: translateY(0);
-    }
-     
-
+export const buttonArea = styled.div`
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    margin-top: 35px;   
 `;
 
-export const buttonArea = styled.div``;
-
-export const button = styled.button``;
+export const button = styled.button`
+    width: 80px;
+    height: 40px;
+    background-color: rgba(51, 51, 51, 0.05);
+    border-radius: 4px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+}
+`;
 

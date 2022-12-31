@@ -1,32 +1,42 @@
+import { useContext } from 'react';
+
 import * as C from './styles'
-import {Item} from "../../types/Item";
+import {ItemType} from "../../types/Item";
 import { formatDateToBrazilianFormat } from "../../Util/helpers";
 import { categories } from "../../data/categories"
+import { ListActions } from "../../context/Context"
 
 type ItemProps = {
-    item: Item;
+    item: ItemType;
 }
-export const TableItem= ({item}: ItemProps) => {
-    const getColor = categories[item.category].color;   
+export const TableItem= () => {
+    
+    const itemList = useContext(ListActions);
 
-    return(
-        <C.TableLine>
-            <C.TableColumn>{formatDateToBrazilianFormat(item.date)}</C.TableColumn>
+    return(        
+        <>
+            {itemList.map((item, index) => (
+                <C.TableRow key={index}>
+                    <C.TableColumn >
+                        {formatDateToBrazilianFormat(item.date)}
+                    </C.TableColumn>
 
-            <C.TableColumn>
-                <C.Category color={getColor}>
-                    {categories[item.category].title}                    
-                </C.Category>                
-            </C.TableColumn>
+                    <C.TableColumn key={index}>
+                        <C.Category color={"red"}>{item.category}</C.Category>
+                    </C.TableColumn>
 
-            <C.TableColumn>{item.title}</C.TableColumn>
+                    <C.TableColumn> 
+                        {item.title}
+                    </C.TableColumn>
 
-            <C.TableColumn>
-                <C.Value color={getColor}>
-                    ${item.value.toFixed(2)}
-                    </C.Value>
-            </C.TableColumn>
-            
-        </C.TableLine>
+                    <C.TableColumn>
+
+                    <C.Value color={"blue"}>
+                        ${item.value.toFixed(2)}
+                        </C.Value>
+                    </C.TableColumn>
+                </C.TableRow>               
+				))}                              
+        </>        
     );
 }

@@ -1,14 +1,19 @@
 import * as C from './styled';
 import {items} from '../../data/items'
 import {ItemType} from '../../types/Item'
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { categories } from '../../data/categories';
 
-type onAddType = {
-  onAdd: (item: ItemType)=> void;
+type typeProps = {
+  item: ItemType[];
+  list: ItemType[];
 }
 
-export const NewData = ({onAdd}: onAddType ) => {
+type props = {
+ 
+}
+
+export const NewData = ({onAdd}: typeProps, list: ItemType[] ) => {
 
   const [newDate, setNewDate] = useState('');
   const [newCategory, setNewCategory] = useState('');
@@ -45,17 +50,28 @@ export const NewData = ({onAdd}: onAddType ) => {
 
     if(errors.length > 0){
       alert(errors.join("\n"));
+
     }else {
+
       onAdd({
         date: new Date(newDate),
         category: newCategory,
         title: newTitle,
         value: newValue
       });
+
       clearFields();
     }
   };  
-    console.log(categoryKeys);
+
+  // console.log("OnDD"+onAdd);
+
+  // const handleAddItem = (item: typeProps) => {
+  //   let newList = [...list];
+  //   newList.push(item);
+  //   setList(newList);
+  // }
+   
 
     return (
       <C.Container>

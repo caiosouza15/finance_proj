@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { ListActionsProvider } from './context/Context'
 
 import * as C from './App.styled'
 import { Category } from './types/Category';
@@ -50,35 +51,33 @@ const App = () => {
     newList.push(item);
     setList(newList);
   }
-
+  
   return (
-    <C.Container>
+    <ListActionsProvider>
+      <C.Container>
+        <C.Header>
+          <C.HeaderText>
+              Finance System
+          </C.HeaderText>        
+        </C.Header>
 
-      <C.Header>
-        <C.HeaderText>
-            Finance System
-        </C.HeaderText>        
-      </C.Header>
+        <C.Body>
+          <InfoArea 
+          currentMonth={currentMonth} 
+          onMonthChange={handleMonthChange} 
+          income={income} 
+          expense={expense}
+          />
+          <NewData onAdd={handleAddItem}/>
+          
+          <TableArea list={filteredList}/>                
 
-      <C.Body>
-        <InfoArea 
-        currentMonth={currentMonth} 
-        onMonthChange={handleMonthChange} 
-        income={income} 
-        expense={expense}
-        />
-
-         <TableArea list={filteredList}/>
-
-        <C.ContainerButton>
-          <C.AddNewDataButton>NEW DATA</C.AddNewDataButton>
-        </C.ContainerButton>
          
 
-         <NewData onAdd={handleAddItem}/>
-
-      </C.Body>
+        </C.Body>
     </C.Container>
+    </ListActionsProvider>
+    
   )  
 }
 export default App;
