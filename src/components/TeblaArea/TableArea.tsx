@@ -6,7 +6,8 @@ type listProps = {
     list: ItemType[];
 }
 
-export const TableArea = ({list}: listProps) => {
+export const TableArea = ({list}: listProps) => { 
+
     return (
         <C.Table>
             <thead>
@@ -19,9 +20,10 @@ export const TableArea = ({list}: listProps) => {
             </thead>
             
             <tbody>
-                {list.map((item: ItemType, index: number) =>(
-                    <TableItem key={index} item={item} />
-                ))}
+                {
+                    <TableItem  />
+                    
+                }
 
             </tbody>
         </C.Table>
