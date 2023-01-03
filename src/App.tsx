@@ -11,6 +11,8 @@ import {filterListByMonth} from './Util/filters'
 import InfoArea, {} from "./components/InfoArea"
 import { categories } from './data/categories';
 import NewData from './components/NewData';
+import TableItem from './components/TableItem';
+
 
 const App = () => {
 
@@ -51,6 +53,12 @@ const App = () => {
     newList.push(item);
     setList(newList);
   }
+
+  const indexItem = (index: number) => {
+    let indexArray = [...list];
+    indexArray.slice(index);
+    setList(indexArray);
+  }
   
   return (
     <ListActionsProvider>
@@ -68,9 +76,10 @@ const App = () => {
           income={income} 
           expense={expense}
           />
-          <NewData onAdd={handleAddItem}/>
           
-          <TableArea list={filteredList}/>                
+          <NewData onAdd={handleAddItem} />          
+
+          <TableItem item={filteredList} indexItem={indexItem}/>           
 
          
 

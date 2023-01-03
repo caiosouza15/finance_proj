@@ -1,16 +1,20 @@
-import React, { createContext } from "react";
+import React, { createContext, ReactNode } from "react";
 import TableItem from "../components/TableItem";
 import { items } from "../data/items";
 import { ItemType } from "../types/Item"
 import { reducerAction } from "../types/ReducerActionTypes";
 
-type childrenType = {
-    children: React.ReactNode
+type initialState = {
+    dataList: ItemType[];
 }
 
-export const ListActions = createContext(items);
+const initialState = {
+    dataList: items,
+}
 
-export const ListActionsProvider: React.FC<childrenType>= ({children}) => {
+export const ListActions = createContext(initialState);
+
+export const ListActionsProvider: React.FC<{children: ReactNode}>= ({children}) => {
     return(
         <ListActions.Provider value={items}>
             {children}
