@@ -10,10 +10,14 @@ export const Container = styled.div`
 
 export const Header = styled.div`
     background: rgb(2,0,36);
-    height: 300px;
+    height: 150px;
     width: 100%;   
     text-align: center;
     border-radius: 13px 15px 50px 50px / 1px 0px 25px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
 `;
 
 export const HeaderText = styled.div`

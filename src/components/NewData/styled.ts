@@ -30,6 +30,16 @@ export const Input = styled.input`
      background-color: #FFFFFF;     
  `;
 
+ export const Select = styled.select`
+    padding: 5px;
+    width: 150px;
+    font-size: 18px;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: #CCCCCC;
+    background-color: #FFFFFF;
+ `;
+
 export const buttonArea = styled.div`
     display: flex;
     align-items: center;
@@ -58,7 +68,6 @@ export const button = styled.button`
     vertical-align: baseline;
     white-space: nowrap;
     user-select: none;
-    -webkit-user-select: none;
-}
+    webkit-user-select: none;
 `;
 

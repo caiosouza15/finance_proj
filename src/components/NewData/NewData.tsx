@@ -1,19 +1,15 @@
 import * as C from './styled';
 import {items} from '../../data/items'
 import {ItemType} from '../../types/Item'
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { categories } from '../../data/categories';
 
 type typeProps = {
-  item: ItemType[];
-  list: ItemType[];
+  onAdd: (items: ItemType) => void;
+  // list: ItemType[];
 }
 
-type props = {
- 
-}
-
-export const NewData = ({onAdd}: typeProps, list: ItemType[] ) => {
+export const NewData = ({onAdd}: typeProps,  ) => {
 
   const [newDate, setNewDate] = useState('');
   const [newCategory, setNewCategory] = useState('');
@@ -26,7 +22,7 @@ export const NewData = ({onAdd}: typeProps, list: ItemType[] ) => {
     setNewTitle('');
     setNewValue(0);
   }
-  
+    
   const categoryKeys: string[] = Object.keys(categories);
 
   const handleAddEvent = () => {
@@ -62,17 +58,8 @@ export const NewData = ({onAdd}: typeProps, list: ItemType[] ) => {
 
       clearFields();
     }
-  };  
-
-  // console.log("OnDD"+onAdd);
-
-  // const handleAddItem = (item: typeProps) => {
-  //   let newList = [...list];
-  //   newList.push(item);
-  //   setList(newList);
-  // }
-   
-
+  };
+  
     return (
       <C.Container>
         <C.FormArea>
@@ -83,15 +70,21 @@ export const NewData = ({onAdd}: typeProps, list: ItemType[] ) => {
               type="date" 
                 value={newDate} 
                 onChange={e => setNewDate(e.target.value)}/>
-          </C.InputLabel>
+          </C.InputLabel>         
             
           <C.InputLabel>
-            <C.InputTitle>Category</C.InputTitle>
-            <C.Input  
-              type="text" 
-              value={newCategory} 
-              onChange={e => setNewCategory(e.target.value)}/>
+            <C.InputTitle>Category</C.InputTitle>           
+               <C.Select value={newCategory}  onChange={(e) =>  setNewCategory(e.target.value)}>  
+               <option></option>
+                {categoryKeys.map((item, index) => (
+                  <option 
+                    key={index}
+                    value={item}
+                 >{item}</option>
+                ))}
+              </C.Select>            
           </C.InputLabel>
+
 
           <C.InputLabel>
             <C.InputTitle>Title</C.InputTitle>
